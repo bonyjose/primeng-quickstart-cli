@@ -3,7 +3,7 @@ import { Car } from './domain/car';
 import { CarService } from './services/carservice';
 
 export class PrimeCar implements Car {
-    constructor(public vin?, public year?, public brand?, public color?) {}
+    constructor(public vin?:number, public year?:number, public brand?:string, public color?:string) {}
 }
 
 @Component({
@@ -53,22 +53,22 @@ export class AppComponent implements OnInit {
             cars[this.findSelectedCarIndex()] = this.car;
         }
         this.cars = cars;
-        this.car = null;
+        // this.car = null;
         this.displayDialog = false;
     }
 
     delete() {
         const index = this.findSelectedCarIndex();
         this.cars = this.cars.filter((val, i) => i !== index);
-        this.car = null;
+        // this.car = null;
         this.displayDialog = false;
     }
 
-    onRowSelect(event) {
-        this.newCar = false;
-        this.car = {...event.data};
-        this.displayDialog = true;
-    }
+    // onRowSelect(event) {
+    //     this.newCar = false;
+    //     this.car = {...event.data};
+    //     this.displayDialog = true;
+    // }
 
     findSelectedCarIndex(): number {
         return this.cars.indexOf(this.selectedCar);
